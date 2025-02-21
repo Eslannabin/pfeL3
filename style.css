@@ -1,0 +1,754 @@
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0; /* تقليل الحشو */
+    border-bottom: 1px solid #ccc;
+}
+
+.logo-menu {
+    display: flex;
+    flex-direction: row; /* الشعار والروابط في سطر واحد */
+    align-items: center; /* توسيط العناصر عموديًا */
+    gap: 380px; /* زيادة المسافة بين الشعار والروابط */
+}
+
+.menu-toggle {
+    display: none; /* مخفي في الوضع العادي */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background: black;
+    margin: 3px 0;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row; /* الروابط في سطر واحد */
+    align-items: center; /* توسيط الروابط عموديًا */
+    gap: 20px; /* تقليل المسافة بين الروابط */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    margin: 0; /* إزالة الهوامش */
+    padding: 0; /* إزالة الحشو */
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px; /* تقليل المسافة بين الأزرار */
+}
+/* From Uiverse.io by niat786 */ 
+button {
+    border: none;
+    color: #141313;
+    background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
+    border-radius: 20px;
+    background-size: 100% auto;
+    font-family: inherit;
+    font-size: 17px;
+    padding: 0.6em 1.5em;
+   }
+   
+   button:hover {
+    background-position: right center;
+    background-size: 200% auto;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse512 1.5s infinite;
+   }
+   
+   @keyframes pulse512 {
+    0% {
+     box-shadow: 0 0 0 0 #05bada66;
+    }
+   
+    70% {
+     box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+    }
+   
+    100% {
+     box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+    }
+   }
+
+.buttons button {
+    padding: 8px 16px; /* تقليل حجم الأزرار */
+    border: 1px solid #ccc;
+    background: #A0F7E6;
+    cursor: pointer;
+    font-size: 0.9rem; /* تصغير حجم الخط */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* إظهار زر القائمة في الجوال */
+    }
+
+    .nav-links {
+        display: none; /* إخفاء الروابط في الجوال */
+        flex-direction: column; /* الروابط في عمود في الجوال */
+        gap: 10px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+
+    .nav-links.active {
+        display: flex; /* إظهار الروابط عند النقر على زر القائمة */
+    }
+}
+
+/* Section Hero */
+.hero {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.hero-buttons button {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Section Fonctionnalités */
+.fonctionnalites {
+    padding: 50px 0;
+    background-color: #304A45; /* لون خلفية القسم */
+}
+
+.fonctionnalites h2 {
+    text-align: center; /* توسيط النص أفقيًا */
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: white; /* لون العنوان أبيض */
+}
+
+.fonctionnalites-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* المسافة بين الأقسام */
+}
+
+.fonctionnalite {
+    flex: 1;
+    background: #40625C; /* لون خلفية القسم */
+    border-radius: 10px; /* زوايا دائرية */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    padding: 20px;
+    text-align: center;
+}
+
+.fonctionnalite img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px; /* زوايا دائرية للصورة */
+    margin-bottom: 20px;
+}
+
+.fonctionnalite h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: white; /* لون العنوان أبيض */
+}
+
+.fonctionnalite p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: white; /* لون النص أبيض */
+}
+
+.fonctionnalite button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF; /* لون زر أزرق */
+    color: white; /* لون نص الزر */
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px; /* زوايا دائرية للزر */
+}
+
+.fonctionnalite button:hover {
+    background-color: #0056b3; /* لون زر أزرق غامق عند التمرير */
+}
+
+/* Section Recherche Avancée */
+.recherche-avancee {
+    padding: 80px 0;
+    background-color: black;
+}
+
+.recherche-avancee h1,
+.recherche-avancee p {
+    color: white; /* لون النص أبيض */
+}
+
+/* Section Téléchargement */
+.telechargement {
+    padding: 80px 0;
+    background-color: #304A45;
+}
+
+.telechargement h1,
+.telechargement p {
+    color: white; /* لون النص أبيض */
+}
+
+/* Section Rejoignez-Nous */
+.rejoignez-nous {
+    padding: 80px 0;
+    background-color: black;
+}
+
+.rejoignez-nous h2,
+.rejoignez-nous p {
+    color: white; /* لون النص أبيض */
+}
+
+/* Section Recherche Avancée */
+.recherche-avancee {
+    padding: 80px 0;
+    background-color: black;
+}
+
+.recherche-avancee .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* العناصر مرتبة عموديًا */
+    gap: 40px; /* المسافة بين النص والصورة */
+}
+
+/* تقسيم النص إلى جزأين */
+.recherche-avancee .text-split {
+    display: flex;
+    gap: 40px; /* المسافة بين الجزأين */
+}
+
+.recherche-avancee .left-text {
+    flex: 1; /* يأخذ نصف المساحة */
+    text-align: left; /* محاذاة النص إلى اليسار */
+}
+
+.recherche-avancee .right-text {
+    flex: 1; /* يأخذ نصف المساحة */
+    text-align: left; /* محاذاة النص إلى اليسار */
+}
+
+.recherche-avancee h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: white;
+    line-height: 1.3;
+}
+
+.recherche-avancee p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: white;
+    line-height: 1.6;
+}
+
+/* تنسيق الصورة */
+.recherche-avancee .image-content {
+    text-align: center; /* توسيط الصورة */
+}
+
+.recherche-avancee img {
+    width: 100%;
+    max-width: 1000px; /* تحديد أقصى عرض للصورة */
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .recherche-avancee .text-split {
+        flex-direction: column; /* تكديس النصين عموديًا في الجوال */
+    }
+
+    .recherche-avancee h1 {
+        font-size: 2rem; /* تصغير حجم العنوان في الجوال */
+    }
+
+    .recherche-avancee p {
+        font-size: 1rem; /* تصغير حجم النص في الجوال */
+    }
+
+    .recherche-avancee img {
+        max-width: 100%; /* عرض كامل في الجوال */
+    }
+}
+
+
+
+/* Section Téléchargement */
+.telechargement {
+    padding: 80px 0;
+    background-color: #304A45;
+}
+
+.telechargement .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center; /* توسيط العناصر عموديًا */
+    gap: 40px; /* المسافة بين الصورة والنص */
+}
+
+.telechargement .image-content {
+    flex: 1; /* يأخذ نصف المساحة */
+    text-align: left; /* توسيط الصورة إلى اليسار */
+}
+
+.telechargement img {
+    width: 100%;
+    max-width: 500px; /* تحديد أقصى عرض للصورة */
+    height: auto;
+    border-radius: 10px;
+}
+
+.telechargement .text-content {
+    flex: 1; /* يأخذ نصف المساحة */
+    text-align: left; /* محاذاة النص إلى اليسار */
+}
+
+.telechargement h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px; /* المسافة بين العنوان والفقرة */
+    color: white;
+    line-height: 1.3;
+}
+
+.telechargement p {
+    font-size: 1.2rem;
+    margin-bottom: 30px; /* المسافة بين الفقرة والأزرار */
+    color: white;
+    line-height: 1.6;
+}
+
+.telechargement .buttons {
+    display: flex;
+    gap: 20px; /* المسافة بين الأزرار */
+}
+
+.telechargement .buttons button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF; /* لون زر أزرق */
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.telechargement .buttons button:hover {
+    background-color: #0056b3; /* لون زر أزرق غامق عند التمرير */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .telechargement .container {
+        flex-direction: column; /* تكديس العناصر عموديًا في الجوال */
+        text-align: center; /* توسيط النص في الجوال */
+    }
+
+    .telechargement h1 {
+        font-size: 2rem; /* تصغير حجم العنوان في الجوال */
+    }
+
+    .telechargement p {
+        font-size: 1rem; /* تصغير حجم النص في الجوال */
+    }
+
+    .telechargement .buttons {
+        justify-content: center; /* توسيط الأزرار في الجوال */
+    }
+
+    .telechargement img {
+        max-width: 100%; /* عرض كامل في الجوال */
+    }
+}
+
+/* Section Rejoignez-Nous */
+.rejoignez-nous {
+    padding: 80px 0;
+    background-color: black;
+}
+
+.rejoignez-nous .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center; /* توسيط العناصر عموديًا */
+    gap: 40px; /* المسافة بين النص والصورة */
+}
+
+.rejoignez-nous .text-content {
+    flex: 1; /* يأخذ نصف المساحة */
+    text-align: left; /* محاذاة النص إلى اليسار */
+}
+
+.rejoignez-nous h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: white;
+    line-height: 1.3;
+}
+
+.rejoignez-nous p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: white;
+    line-height: 1.6;
+}
+
+.rejoignez-nous .buttons {
+    display: flex;
+    gap: 20px; /* المسافة بين الأزرار */
+}
+
+.rejoignez-nous .buttons button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF; /* لون زر أزرق */
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.rejoignez-nous .buttons button:hover {
+    background-color: #0056b3; /* لون زر أزرق غامق عند التمرير */
+}
+
+.rejoignez-nous .image-content {
+    flex: 1; /* يأخذ نصف المساحة */
+    text-align: right; /* توسيط الصورة إلى اليمين */
+}
+
+.rejoignez-nous img {
+    width: 100%;
+    max-width: 500px; /* تحديد أقصى عرض للصورة */
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .rejoignez-nous .container {
+        flex-direction: column; /* تكديس العناصر عموديًا في الجوال */
+        text-align: center; /* توسيط النص في الجوال */
+    }
+
+    .rejoignez-nous h2 {
+        font-size: 2rem; /* تصغير حجم العنوان في الجوال */
+    }
+
+    .rejoignez-nous p {
+        font-size: 1rem; /* تصغير حجم النص في الجوال */
+    }
+
+    .rejoignez-nous .buttons {
+        justify-content: center; /* توسيط الأزرار في الجوال */
+    }
+
+    .rejoignez-nous img {
+        max-width: 100%; /* عرض كامل في الجوال */
+    }
+}
+
+/* Section Blog */
+.blog {
+    padding: 80px 0;
+    background-color: #A0F7E6;
+}
+
+.blog .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center; /* توسيط النص */
+}
+
+.blog .header-with-button {
+    display: flex;
+    justify-content: space-between; /* العنوان على اليمين والزر على اليسار */
+    align-items: center; /* توسيط العناصر عموديًا */
+    margin-bottom: 20px; /* المسافة بين العنوان والفقرة النصية */
+}
+
+.blog h2 {
+    font-size: 2.5rem;
+    color: black;
+    line-height: 1.3;
+}
+
+.blog p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: black;
+    line-height: 1.6;
+}
+
+.blog button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF; /* لون زر أزرق */
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.blog button:hover {
+    background-color: #0056b3; /* لون زر أزرق غامق عند التمرير */
+}
+
+.blog .articles {
+    display: flex;
+    justify-content: space-between; /* توزيع المقالات بشكل متساوٍ */
+    gap: 20px; /* المسافة بين المقالات */
+}
+
+.blog .article {
+    flex: 1; /* كل مقال يأخذ نفس المساحة */
+    background: #80C5B8;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    padding: 20px;
+    text-align: left; /* محاذاة النص إلى اليسار */
+}
+
+.blog .article img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.blog .article h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.blog .article p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.blog .article .auteur {
+    display: flex;
+    align-items: center; /* توسيط العناصر عموديًا */
+    gap: 10px; /* المسافة بين الصورة والنص */
+}
+
+.blog .article .auteur img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.blog .article .auteur p {
+    font-size: 0.9rem;
+    color: black;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .blog .articles {
+        flex-direction: column; /* تكديس المقالات عموديًا في الجوال */
+    }
+
+    .blog h2 {
+        font-size: 2rem; /* تصغير حجم العنوان في الجوال */
+    }
+
+    .blog p {
+        font-size: 1rem; /* تصغير حجم النص في الجوال */
+    }
+
+    .blog .header-with-button {
+        flex-direction: column; /* تكديس العنوان والزر عموديًا في الجوال */
+        gap: 10px; /* المسافة بين العنوان والزر */
+    }
+}
+
+/* Footer */
+.footer {
+    background: #A0F7E6;
+    padding: 50px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: black;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-links a img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Afficher le bouton du menu en mode mobile */
+    }
+
+    .nav-links {
+        display: none; /* Masquer les liens en mode mobile */
+        flex-direction: column; /* Liens en colonne en mode mobile */
+        gap: 10px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+
+    .nav-links.active {
+        display: flex; /* Afficher les liens lorsque le menu est activé */
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .fonctionnalites-grid, .blog .articles {
+        flex-direction: column;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+}
