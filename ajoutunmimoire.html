@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Mémoire</title>
+    <link rel="stylesheet" href="style.css"> <!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" href="ajoutunmemoire.css"> <!-- Lien vers le fichier CSS -->
+</head>
+
+<body>
+    <!-- Section Header -->
+    <section id="relume" class="header">
+        <div class="container">
+            <div class="logo-menu">
+                <a href="#"><img src="https://d22po4pjz3o32e.cloudfront.net/logo-image.svg"
+                        alt="Logo de l'entreprise"></a>
+                <nav class="nav-links">
+                    <a href="#">Accueil Principal</a>
+                    <a href="#">À Propos</a>
+                    <a href="#">Contactez-Nous</a>
+                    <div class="buttons">
+                        <button>S'inscrire</button>
+                        <button>Accéder</button>
+                    </div>
+                </nav>
+                <button class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </section>
+    <div class="ajout-memoire">
+        <div class="form-container">
+            <h2>Ajouter un Mémoire à la Bibliothèque</h2>
+            <form action="/submit-memoire" method="POST" enctype="multipart/form-data">
+                <div class="form-grid">
+                    <!-- الصف الأول -->
+                    <div class="form-group">
+                        <label for="universite">Université :</label>
+                        <input type="text" id="universite" name="universite" placeholder="Entrez l'université" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="filiere">Filière :</label>
+                        <input type="text" id="filiere" name="filiere" placeholder="Entrez la filière" required>
+                    </div>
+
+                    <!-- الصف الثاني -->
+                    <div class="form-group">
+                        <label for="specialite">Spécialité :</label>
+                        <input type="text" id="specialite" name="specialite" placeholder="Entrez la spécialité"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="diplome">Diplôme :</label>
+                        <select id="diplome" name="diplome" required>
+                            <option value="">Sélectionnez un diplôme</option>
+                            <option value="licence">Licence</option>
+                            <option value="master">Master</option>
+                            <option value="doctorat">Doctorat</option>
+                        </select>
+                    </div>
+
+                    <!-- الصف الثالث -->
+                    <div class="form-group">
+                        <label for="titre">Titre du mémoire :</label>
+                        <input type="text" id="titre" name="titre" placeholder="Entrez le titre du mémoire" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="encadreur">Encadreur :</label>
+                        <input type="text" id="encadreur" name="encadreur" placeholder="Nom de l'encadreur" required>
+                    </div>
+
+                    <!-- الصف الرابع -->
+                    <div class="form-group">
+                        <label for="auteur">Auteur du mémoire :</label>
+                        <input type="text" id="auteur" name="auteur" placeholder="Nom de l'auteur" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="annee">Année d'écriture :</label>
+                        <input type="number" id="annee" name="annee" min="1990" max="2099" placeholder="Ex: 2023"
+                            required>
+                    </div>
+
+                    <!-- الصف الخامس -->
+                    <div class="form-group full-width">
+                        <label for="resume">Résumé (optionnel) :</label>
+                        <textarea id="resume" name="resume" rows="5"
+                            placeholder="Entrez un résumé du mémoire"></textarea>
+                    </div>
+
+                    <!-- زر تحميل PDF -->
+                    <div class="form-group full-width">
+                        <label for="file">Téléverser un fichier PDF :</label>
+                        <div class="file-upload">
+                            <label for="file" class="upload-label">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7 10V9C7 6.23858 9.23858 4 12 4C14.7614 4 17 6.23858 17 9V10C19.2091 10 21 11.7909 21 14C21 15.4806 20.1956 16.8084 19 17.5M7 10C4.79086 10 3 11.7909 3 14C3 15.4806 3.8044 16.8084 5 17.5M7 10C7.43285 10 7.84965 10.0688 8.24006 10.1959M12 12V21M12 12L15 15M12 12L9 15"
+                                        stroke="#000000" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </svg>
+                                <span>Téléverser un PDF</span>
+                            </label>
+                            <input id="file" type="file" name="fichier" accept=".pdf">
+                            <p id="file-name">Aucun fichier sélectionné</p>
+                        </div>
+                    </div>
+
+                    <!-- زر الإرسال -->
+                    <div class="form-group full-width">
+                        <button type="submit" class="button-submit">Ajouter le mémoire</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer id="relume" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="#"><img src="https://d22po4pjz3o32e.cloudfront.net/logo-image.svg" alt="Logo"></a>
+                <div class="footer-links">
+                    <a href="#">Lien Un</a>
+                    <a href="#">Lien Deux</a>
+                    <a href="#">Lien Trois</a>
+                    <a href="#">Lien Quatre</a>
+                    <a href="#">Lien Cinq</a>
+                </div>
+                <div class="social-links">
+                    <a href="#"><img src="image/14.png" alt="Facebook"></a>
+                    <a href="#"><img src="image/15.png" alt="Instagram"></a>
+                    <a href="#"><img src="image/16.jpg" alt="Twitter"></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Relume. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.getElementById('file').addEventListener('change', function(e) {
+        const file = e.target.files[0]; // الحصول على الملف المختار
+        const fileNameElement = document.getElementById('file-name'); // العنصر الذي يعرض اسم الملف
+
+        if (file) {
+            fileNameElement.textContent = file.name; // عرض اسم الملف المختار
+        } else {
+            fileNameElement.textContent = "Aucun fichier sélectionné"; // إذا لم يتم اختيار ملف
+        }
+    });
+    </script>
+</body>
+
+</html>
