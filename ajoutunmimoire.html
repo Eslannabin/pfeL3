@@ -5,34 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter un Mémoire</title>
-    <link rel="stylesheet" href="style.css"> <!-- Lien vers le fichier CSS -->
+   
     <link rel="stylesheet" href="ajoutunmemoire.css"> <!-- Lien vers le fichier CSS -->
 </head>
 
 <body>
     <!-- Section Header -->
-    <section id="relume" class="header">
-        <div class="container">
-            <div class="logo-menu">
-                <a href="#"><img src="https://d22po4pjz3o32e.cloudfront.net/logo-image.svg"
-                        alt="Logo de l'entreprise"></a>
-                <nav class="nav-links">
-                    <a href="#">Accueil Principal</a>
-                    <a href="#">À Propos</a>
-                    <a href="#">Contactez-Nous</a>
-                    <div class="buttons">
-                        <button>S'inscrire</button>
-                        <button>Accéder</button>
-                    </div>
-                </nav>
-                <button class="menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-    </section>
+    <?php include "header.html"; ?>
+
+
     <div class="ajout-memoire">
         <div class="form-container">
             <h2>Ajouter un Mémoire à la Bibliothèque</h2>
@@ -119,28 +100,7 @@
         </div>
     </div>
     <!-- Footer -->
-    <footer id="relume" class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <a href="#"><img src="https://d22po4pjz3o32e.cloudfront.net/logo-image.svg" alt="Logo"></a>
-                <div class="footer-links">
-                    <a href="#">Lien Un</a>
-                    <a href="#">Lien Deux</a>
-                    <a href="#">Lien Trois</a>
-                    <a href="#">Lien Quatre</a>
-                    <a href="#">Lien Cinq</a>
-                </div>
-                <div class="social-links">
-                    <a href="#"><img src="image/14.png" alt="Facebook"></a>
-                    <a href="#"><img src="image/15.png" alt="Instagram"></a>
-                    <a href="#"><img src="image/16.jpg" alt="Twitter"></a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2024 Relume. Tous droits réservés.</p>
-            </div>
-        </div>
-    </footer>
+    <?php include "footer.html"; ?>
 
     <script>
     document.getElementById('file').addEventListener('change', function(e) {
