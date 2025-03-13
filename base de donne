@@ -1,0 +1,14 @@
+CREATE TABLE `memoires` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `universite` varchar(255) NOT NULL,
+  `filiere` varchar(255) NOT NULL,
+  `specialite` varchar(255) NOT NULL,
+  `diplome` enum('doctorat','master','licence') NOT NULL,
+  `titre` varchar(255) NOT NULL,
+  `encadreur` varchar(255) NOT NULL,
+  `auteur` varchar(255) NOT NULL,
+  `annee` int(11) NOT NULL,
+  `resume` text,
+  `fichier` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
