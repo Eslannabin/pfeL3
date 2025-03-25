@@ -9,6 +9,7 @@ CREATE TABLE `memoires` (
   `auteur` varchar(255) NOT NULL,
   `annee` int(11) NOT NULL,
   `resume` text,
-  `fichier` varchar(255) NOT NULL,
+  `fichier_pdf` varchar(255) NOT NULL,
+  `date_ajout` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1
