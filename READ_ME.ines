@@ -1,4 +1,33 @@
-Rani rayha nbedel fel noms te3 les fishiers sash ibano washnohom,
+Rani rayha nbedel fel les noms te3 les fishiers bash ibano washnohom,
 prcq rohom mxeltin doka
-sidebar2.php howa li complet doka
+sidebar2.php howa li complet :)
 mazal nbedel fih.
+__________________________________________
+*****Shwiya sur le contenue du site***** 
+__________________________________________
+
+1. **Normal User (Students & Teachers)**:
+   - **Features**: 
+     - Browse and search for books.
+     - Download books after logging in.
+     - View personal download history.
+     - View personal information and profile.
+     - Rate or review books (optional).
+   - **Access Restrictions**: Limited to content available in the library.
+
+2. **Moderator**:
+   - **Role**: Helps manage content and monitor user activities.
+   - **Features**:
+     - Approve or reject new book uploads.
+     - Review flagged content or comments.
+     - Manage categories and tags for books.
+   - **Access Restrictions**: Cannot modify critical website settings or manage administrator accounts.
+
+3. **Administrator**:
+   - **Role**: Full control over the website's functionality and user management.
+   - **Features**:
+     - Manage user accounts (add, edit, or delete users, including moderators).
+     - Add or remove books from the library.
+     - Oversee website settings like maintenance and updates.
+     - Access analytics (e.g., download statistics, user activity).
+   - **Access Restrictions**: Unlimited access to all features.
