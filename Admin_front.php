@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Page</title>
+  <title>The front of the admin page</title>
 
   <link rel="stylesheet" href="adminV1.css">
 </head>
@@ -18,50 +18,44 @@
 
       <div class="admin_box">
 
-        <h3>Rs. </h3>
-        <p>Total Payments Pending </p>
+        <h4> Utilisateur </h4>
+        <p>... </p>
       </div>
 
       <div class="admin_box">
 
-        <h3>Rs. </h3>
-        <p>Completed Payments</p>
+        <h4> Moderateur</h4>
+        <p>...</p>
       </div>
 
       <div class="admin_box">
 
-        <h3>gdg </h3>
-        <p>Orders Placed</p>
+        <h4>Memoires</h4>
+        <p>...</p>
       </div>
 
       <div class="admin_box">
 
-        <h3></h3>
-        <p>Products Added</p>
+        <h4>Livres</h4>
+        <p>...</p>
       </div>
 
       <div class="admin_box">
 
-        <h3>gff</h3>
-        <p>User Present</p>
+        <h4>Filiere</h4>
+        <p>...</p>
       </div>
 
       <div class="admin_box">
 
-        <h3>fhfhfg</h3>
-        <p>Admin Present</p>
+        <h4>Categories</h4>
+        <p>...</p>
       </div>
 
       <div class="admin_box">
 
-        <h3>dgdgfdg</h3>
-        <p>Total Accounts</p>
-      </div>
-
-      <div class="admin_box">
-
-        <h3>gdg</h3>
-        <p>New Messages</p>
+        <h4>Notification</h4>
+        <p>...</p>
       </div>
 
     </div>
