@@ -19,8 +19,8 @@ __________________________________________
    - **Role**: Helps manage content and monitor user activities.
    - **Features**:
      - Approve or reject new book uploads.
-     - Review flagged content or comments.
-     - Manage categories and tags for books.
+     - Review flagged content or comments.(ida ndiro les commentaires neqder ndirha)
+     - Manage categories and tags for books. 
    - **Access Restrictions**: Cannot modify critical website settings or manage administrator accounts.
 
 3. **Administrator**:
@@ -28,6 +28,6 @@ __________________________________________
    - **Features**:
      - Manage user accounts (add, edit, or delete users, including moderators).
      - Add or remove books from the library.
-     - Oversee website settings like maintenance and updates.
-     - Access analytics (e.g., download statistics, user activity).
+     - Oversee website settings like maintenance and updates.(ajouter de nouveau filieres et modules)
+     - Access analytics (e.g., download statistics, user activity). {MAZAL MA 3LABALI IDA NDIRHA WELA NO}
    - **Access Restrictions**: Unlimited access to all features.
