@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar With Bootstrap</title>
+    <title>The index of the admin page</title>
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -15,6 +15,7 @@
 <body>
     <div class="wrapper">
         <aside id="sidebar">
+            <!-- LOGO -->
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
                     <i class="lni lni-grid-alt"></i>
@@ -23,6 +24,7 @@
                     <a href="#">CodzSword</a>
                 </div>
             </div>
+            <!-- PROFILE DE L'ADMIN -->
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link">
@@ -30,63 +32,105 @@
                         <span>Profile</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
-                        <i class="lni lni-agenda"></i>
-                        <span>Task</span>
-                    </a>
-                </li>
+                <!-- AJOUTER -->
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                        data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                        <i class="lni lni-protection"></i>
-                        <span>Auth</span>
+                        data-bs-target="#auth-ajouter" aria-expanded="false" aria-controls="auth-ajouter">
+                        <i class="lni lni-plus"></i>
+                        <span>Ajouter</span>
                     </a>
-                    <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <ul id="auth-ajouter" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Login</a>
+                            <a href="#" class="sidebar-link">Utilisateur/Moderateur</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Register</a>
+                            <a href="#" class="sidebar-link">Memoire</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Categories</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Filiere</a>
                         </li>
                     </ul>
                 </li>
+
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                        data-bs-target="#auth-supprimer" aria-expanded="false" aria-controls="auth-supprimer">
+                        <i class="lni lni-minus"></i>
+                        <span>Supprimer</span>
+                    </a>
+                    <ul id="auth-supprimer" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Utilisateur/Moderateur</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Memoire</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Categories</a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link">Filiere</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                         data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
                         <i class="lni lni-layout"></i>
-                        <span>Multi Level</span>
+                        <span>Tables</span>
                     </a>
                     <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two">
-                                Two Links
+                            <!-- TABLES DE UTILISATEURS -->
+                            <a href="#" class="sidebar-link">
+                                Utilisateurs
                             </a>
-                            <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
+                        </li>
+                        <li>
+                            <!-- TABLES DE MODERATEURS -->
+                            <a href="#" class="sidebar-link" >
+                                Moderateurs
+                            </a>
+                        </li>
+                        <li>
+                            <!--TABLES DE MOIMOIRES ET LIVRES -->
+                            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                            data-bs-target="#contenu" aria-expanded="false" aria-controls="contenu">
+                                Contenu
+                            </a>
+                            <ul id="contenu" class="sidebar-dropdown list-unstyled collapse">
+
                                 <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">Link 1</a>
+                                    <a href="#" class="sidebar-link">Memoires</a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">Link 2</a>
+                                    <a href="#" class="sidebar-link">Livres</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
+
                 </li>
+                <!-- NOTIFICATION/ MESSAGES -->
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link">
                         <i class="lni lni-popup"></i>
                         <span>Notification</span>
                     </a>
                 </li>
+                <!-- PARAMETRES ?? -->
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link">
                         <i class="lni lni-cog"></i>
-                        <span>Setting</span>
+                        <span>Parametres</span>
                     </a>
                 </li>
             </ul>
+            <!-- LOGOUT -->
             <div class="sidebar-footer">
                 <a href="#" class="sidebar-link">
                     <i class="lni lni-exit"></i>
@@ -94,13 +138,13 @@
                 </a>
             </div>
         </aside>
-        <div class="main p-3">
+        <div class="main p-3">   
             <div class="text-center">
                 <h1>
                     ADMIN FASHBORD
                 </h1>
             </div>
-            <?php include "Admin_home.php"?>
+            <?php include "Admin_front.php"?>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
