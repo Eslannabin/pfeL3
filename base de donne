@@ -1,5 +1,5 @@
 CREATE TABLE `memoires` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `universite` varchar(255) NOT NULL,
   `filiere` varchar(255) NOT NULL,
   `specialite` varchar(255) NOT NULL,
@@ -7,9 +7,11 @@ CREATE TABLE `memoires` (
   `titre` varchar(255) NOT NULL,
   `encadreur` varchar(255) NOT NULL,
   `auteur` varchar(255) NOT NULL,
-  `annee` int(11) NOT NULL,
+  `annee` int NOT NULL,
   `resume` text,
   `fichier_pdf` varchar(255) NOT NULL,
+  `image_path` varchar(255) DEFAULT NULL,
   `date_ajout` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
