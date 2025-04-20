@@ -1,9 +1,8 @@
 <?php
-ob_start(); // بدء تخزين المخرجات
+ob_start();
 require 'PDFPreviewGenerator.php';
 require 'classe.php';
 
-// تفعيل عرض الأخطاء
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -12,10 +11,9 @@ $error = null;
 $success = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $obj = new bibliotaque();
+    $obj = new Bibliotheque();
     
     try {
-        // التحقق من الحقول المطلوبة
         $required = ['universite', 'filiere', 'specialite', 'diplome', 'titre', 'encadreur', 'auteur', 'annee'];
         foreach ($required as $field) {
             if (empty($_POST[$field])) {
@@ -23,15 +21,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
-        // التحقق من ملف PDF
         if (!isset($_FILES['fichier_pdf']) || $_FILES['fichier_pdf']['error'] !== UPLOAD_ERR_OK) {
             throw new Exception("Veuillez télécharger un fichier PDF valide.");
         }
 
-        // تنظيف البيانات
+        // Nettoyage des données
         $universite = htmlspecialchars(trim($_POST['universite']));
-        $filiere = htmlspecialchars(trim($_POST['filiere']));
-        $specialite = htmlspecialchars(trim($_POST['specialite']));
+        $filiere = intval($_POST['filiere']);
+        $specialite = intval($_POST['specialite']);
         $diplome = htmlspecialchars(trim($_POST['diplome']));
         $titre = htmlspecialchars(trim($_POST['titre']));
         $encadreur = htmlspecialchars(trim($_POST['encadreur']));
@@ -39,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $annee = intval($_POST['annee']);
         $resume = isset($_POST['resume']) ? htmlspecialchars(trim($_POST['resume'])) : '';
 
-        // معالجة ملف PDF
+        // Traitement du fichier PDF
         $uploadDir = 'uploads/';
         if (!is_dir($uploadDir)) {
             if (!mkdir($uploadDir, 0755, true)) {
@@ -58,7 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $uploadFile = $uploadDir . $filename;
 
         if (move_uploaded_file($_FILES['fichier_pdf']['tmp_name'], $uploadFile)) {
-            // إنشاء صورة معاينة من الصفحة الأولى
             $previewDir = 'previews/';
             if (!is_dir($previewDir)) {
                 mkdir($previewDir, 0755, true);
@@ -66,7 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $previewFile = PDFPreviewGenerator::createPreview($uploadFile, $previewDir);
 
-            // إضافة إلى قاعدة البيانات
             $result = $obj->ajouterMemoire(
                 $universite,
                 $filiere,
@@ -78,18 +73,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $annee,
                 $resume,
                 $uploadFile,
-                $previewFile // إضافة مسار صورة المعاينة
+                $previewFile
             );
 
             if ($result) {
                 $obj->closeConnection();
-                ob_end_clean(); // تنظيف المخزن المؤقت
+                ob_end_clean();
                 header('Location: pagedememoire.php');
                 exit();
             } else {
-                unlink($uploadFile); // حذف ملف PDF إذا فشلت الإضافة
+                unlink($uploadFile);
                 if ($previewFile && file_exists($previewFile)) {
-                    unlink($previewFile); // حذف صورة المعاينة إذا كانت موجودة
+                    unlink($previewFile);
                 }
                 throw new Exception("Erreur lors de l'ajout en base de données.");
             }
@@ -104,7 +99,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-ob_end_flush(); // إرسال المحتوى المخزن
+// Récupérer toutes les filières pour le select
+$biblio = new Bibliotheque();
+try {
+    $filieres = $biblio->getAllFilieres();
+} catch (Exception $e) {
+    $filieres = [];
+    $error = $error ?: $e->getMessage();
+}
+$biblio->closeConnection();
+
+ob_end_flush();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -128,11 +133,18 @@ ob_end_flush(); // إرسال المحتوى المخزن
                     </div>
                     <div class="form-group">
                         <label for="filiere">Filière :</label>
-                        <input type="text" id="filiere" name="filiere" placeholder="Entrez la filière" required>
+                        <select id="filiere" name="filiere" required>
+                            <option value="">-- Sélectionnez une filière --</option>
+                            <?php foreach ($filieres as $filiere): ?>
+                                <option value="<?= $filiere['id'] ?>"><?= htmlspecialchars($filiere['nom_filiere']) ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="specialite">Spécialité :</label>
-                        <input type="text" id="specialite" name="specialite" placeholder="Entrez la spécialité" required>
+                        <select id="specialite" name="specialite" required disabled>
+                            <option value="">-- Sélectionnez d'abord une filière --</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="diplome">Diplôme :</label>
@@ -193,6 +205,7 @@ ob_end_flush(); // إرسال المحتوى المخزن
     <?php include "footer.html"; ?>
 
     <script>
+        // Gestion de l'affichage du nom du fichier
         document.getElementById('fichier_pdf').addEventListener('change', function(e) {
             const file = e.target.files[0];
             const fileNameElement = document.getElementById('file-name');
@@ -202,6 +215,45 @@ ob_end_flush(); // إرسال المحتوى المخزن
             } else {
                 fileNameElement.textContent = "Aucun fichier sélectionné";
             }
+        });
+
+        // Gestion de la sélection dynamique des spécialités
+        document.addEventListener('DOMContentLoaded', function() {
+            const filiereSelect = document.getElementById('filiere');
+            const specialiteSelect = document.getElementById('specialite');
+
+            filiereSelect.addEventListener('change', function() {
+                const filiereId = this.value;
+                
+                if (!filiereId) {
+                    specialiteSelect.innerHTML = '<option value="">-- Sélectionnez d\'abord une filière --</option>';
+                    specialiteSelect.disabled = true;
+                    return;
+                }
+
+                // Requête AJAX pour récupérer les spécialités
+                fetch('get_specialites.php?filiere_id=' + filiereId)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Erreur réseau');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        specialiteSelect.innerHTML = '<option value="">-- Sélectionnez une spécialité --</option>';
+                        data.forEach(specialite => {
+                            const option = document.createElement('option');
+                            option.value = specialite.id;
+                            option.textContent = specialite.nom_specialite;
+                            specialiteSelect.appendChild(option);
+                        });
+                        specialiteSelect.disabled = false;
+                    })
+                    .catch(error => {
+                        console.error('Erreur:', error);
+                        specialiteSelect.innerHTML = '<option value="">Erreur de chargement</option>';
+                    });
+            });
         });
     </script>
 </body>
