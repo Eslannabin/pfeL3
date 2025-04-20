@@ -1,0 +1,40 @@
+-- Insertion des filières UMBB
+INSERT INTO filieres (nom_filiere) VALUES 
+('Informatique'),
+('Génie Électrique'),
+('Génie Civil'),
+('Biologie Médicale'),
+('Sciences Économiques');
+
+-- Spécialités en Informatique (UMBB)
+INSERT INTO specialites (filiere_id, nom_specialite) VALUES 
+(1, 'Systèmes Informatiques SI'),
+(1,'Ingénierie des Systèmes d’Information et du Logiciel ISIL'),
+(1, 'Réseaux et Sécurité'),
+(1, 'Intelligence Artificielle');
+
+-- Spécialités en Génie Civil
+INSERT INTO specialites (filiere_id, nom_specialite) VALUES 
+(3, 'BTP'),
+(3, 'Géotechnique');
+
+INSERT INTO specialites (filiere_id, nom_specialite) VALUES 
+(2, 'Automatique et Informatique Industrielle'),
+(2, 'Électronique Embarquée'),
+(2, 'Énergies Renouvelables'),
+(2, 'Robotique et Systèmes Intelligents'),
+(2, 'Smart Grids et Énergie Durable');
+
+INSERT INTO specialites (filiere_id, nom_specialite) VALUES 
+(4, 'Biochimie'),
+(4, 'Microbiologie'),
+(4, 'Biotechnologie Végétale'),
+(4, 'Biotechnologie Médicale'),
+(4, 'Écologie et Environnement');
+
+INSERT INTO specialites (filiere_id, nom_specialite) VALUES 
+(5, 'Économie Monétaire et Financière'),
+(5, 'Finance et Comptabilité'),
+(5, 'Marketing Digital'),
+(5, 'Audit et Contrôle de Gestion'),
+(5, 'Management des SI');
