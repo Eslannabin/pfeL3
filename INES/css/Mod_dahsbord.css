@@ -1,0 +1,77 @@
+/* Main content area with scrolling */
+.main-content {
+    flex: 1;
+    transition: margin-left 0.25s ease-in-out;
+    min-height: 100vh;
+    min-width: auto;
+    /* overflow-y: auto; */
+    padding-bottom: 20px;
+    background-color: #f0f0f0;
+    margin: 10px 30px;
+}
+
+/* .mt-6 {
+    margin-left: 2rem;
+} */
+
+.row {
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+}
+
+
+.dashboard-header {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.pending-actions {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.action-item {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.quick-actions .btn {
+    margin: 0.3rem;
+    min-width: 120px;
+}

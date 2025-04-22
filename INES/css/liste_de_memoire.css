@@ -1,0 +1,112 @@
+/* Style de base */
+#sidebar.expand ~ .main-content {
+    margin-left: 50px; /* Matches expanded sidebar width */
+
+}
+/*  */
+
+#sidebar {
+    flex: 0 0 70px; /* Fixed initial width */
+    transition: all 0.3s ease;
+}
+
+#sidebar.expand {
+    flex: 0 0 250px; /* Expanded width */
+}
+
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    table-layout: auto; /* Allow columns to adjust */
+    min-width: 600px; /* Minimum table width */
+}
+
+/*  */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+    transition: all 0.25s ease-in-out;
+}
+
+h1 { 
+    text-align: center;
+    color: #333;
+}
+
+/* Nouveaux champs d'entrée pour les informations d'étudiant */
+
+.card {
+    width: 80%;
+    max-width: none;
+    margin: 0 ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.col-sm-12 {
+    display: flex;
+    justify-content: center;/* Horizontal centering */
+    align-items: center;  /*  Vertical centering*/
+    min-height: 100vh;
+    /* Full viewport height */
+    padding: 20px;
+    box-sizing: border-box;
+    flex: 1;
+    min-width: 0; /* Crucial for proper table shrinking */
+    transition: margin-left 0.3s ease;
+}
+
+.card-body {
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-collapse: collapse;
+    font-size: 18px;
+    text-align: center;
+    background-color: #fff;
+    width: 100%;
+    margin: 10px 0px;
+    /* padding: 10px; */
+
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(1),
+th:last-child {
+    width: 400px;
+}
+
+tr:nth-child(1),
+th:nth-child(1),
+th:nth-child(3),
+th:nth-child(2) {
+    width: 200px;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+table {
+    width: 100%;
+}
