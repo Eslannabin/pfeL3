@@ -1,0 +1,95 @@
+CREATE TABLE `categories` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nom` varchar(100) NOT NULL,
+  `type` varchar(100) NOT NULL,
+  `description` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `commentaires` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `memoire_id` int NOT NULL,
+  `livre_id` int NOT NULL,
+  `utilisateur_id` int DEFAULT NULL,
+  `nom_utilisateur` varchar(100) NOT NULL,
+  `contenu` text NOT NULL,
+  `date_creation` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `memoire_id` (`memoire_id`),
+  KEY `livre_id` (`livre_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `favoris` (
+  `user_id` int NOT NULL,
+  `memoire_id` int NOT NULL,
+  `livre_id` int NOT NULL,
+  `date_ajout` datetime DEFAULT CURRENT_TIMESTAMP,
+  `note` int NOT NULL,
+  PRIMARY KEY (`user_id`,`memoire_id`),
+  KEY `memoire_id` (`memoire_id`),
+  KEY `fk_favoris_livre` (`livre_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `favoris_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `utilisateurs` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `favoris_ibfk_2` FOREIGN KEY (`memoire_id`) REFERENCES `memoires` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `filieres` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nom_filiere` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1
+
+CREATE TABLE `livre` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `titre` varchar(255) NOT NULL,
+  `auteur` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `date_ajout` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `categories_id` int DEFAULT NULL,
+  `mots_cles` text NOT NULL,
+  `fichier_pdf` varchar(255) NOT NULL,
+  `annee_publication` int NOT NULL,
+  `nombre_pages` int NOT NULL,
+  `status` enum('disponible','attente') NOT NULL,
+  `id_utilisateur` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `categories_id` (`categories_id`),
+  CONSTRAINT `categories_id` FOREIGN KEY (`categories_id`) REFERENCES `livre` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `memoires` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `universite` varchar(255) NOT NULL,
+  `filiere` int NOT NULL,
+  `specialite` int NOT NULL,
+  `diplome` enum('doctorat','master','licence') NOT NULL,
+  `titre` varchar(255) NOT NULL,
+  `encadreur` varchar(255) NOT NULL,
+  `auteur` varchar(255) NOT NULL,
+  `annee` int NOT NULL,
+  `resume` text,
+  `fichier_pdf` varchar(255) NOT NULL,
+  `image_path` varchar(255) DEFAULT NULL,
+  `date_ajout` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` enum('accepter','refuser','en_attente') DEFAULT 'en_attente',
+  `date_edition` timestamp NULL DEFAULT NULL,
+  `id_utilisateur` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`) USING BTREE,
+  KEY `filiere` (`filiere`),
+  KEY `specialite` (`specialite`),
+  KEY `fk_utilisateur_memoires` (`id_utilisateur`),
+  CONSTRAINT `fk_utilisateur_memoires` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateurs` (`id`),
+  CONSTRAINT `memoires_ibfk_1` FOREIGN KEY (`filiere`) REFERENCES `filieres` (`id`),
+  CONSTRAINT `memoires_ibfk_2` FOREIGN KEY (`specialite`) REFERENCES `specialites` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1
+
+
+
+
+
+
+
+
